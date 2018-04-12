@@ -3,7 +3,7 @@ class Solution {
 public:
     string convert(string s, int numRows) {
         string ans;
-        vector<vector<char> > zig_zag(numRows);
+        string zig_zag[numRows];
         if(numRows == 1 || numRows == s.size())
             return s;
         int i = 0 , j = 0 , direction = -1;
@@ -14,9 +14,8 @@ public:
             j += direction;
             i++;
         }
-        for(int i = 0 ; i < zig_zag.size() ; i++)
-            for(int j = 0 ; j < zig_zag[i].size() ; j++)
-                ans.push_back(zig_zag[i][j]);
+        for(int i = 0 ; i < numRows ; i++)
+            ans += zig_zag[i];
         return ans;
     }
 };
